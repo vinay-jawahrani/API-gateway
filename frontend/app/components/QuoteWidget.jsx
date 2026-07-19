@@ -43,3 +43,16 @@ export default function QuoteWidget() {
         </div>
     );
 }
+export default function QuoteWidget() {
+    console.log('🟢 QuoteWidget is rendering');  // Add this
+
+    useEffect(() => {
+        console.log('🟢 QuoteWidget useEffect fired');  // Add this
+        fetchQuote();
+    }, []);
+
+    const fetchQuote = async () => {
+        console.log('🟢 fetchQuote called');  // Add this
+        // ... rest of the code
+    };
+}

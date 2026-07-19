@@ -49,3 +49,16 @@ export default function NewsWidget() {
         </div>
     );
 }
+export default function NewsWidget() {
+    console.log('🔵 NewsWidget is rendering');  // Add this
+
+    useEffect(() => {
+        console.log('🔵 NewsWidget useEffect fired');  // Add this
+        fetchNews();
+    }, []);
+
+    const fetchNews = async () => {
+        console.log('🔵 fetchNews called');  // Add this
+        // ... rest of the code
+    };
+}
