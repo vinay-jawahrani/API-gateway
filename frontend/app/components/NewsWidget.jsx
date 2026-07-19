@@ -12,7 +12,8 @@ export default function NewsWidget() {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.get('http://localhost:8000/news?limit=3');
+            const response = await axios.get(
+                `${process.env.NEXT_PUBLIC_API_URL}/weather?city=${city}`);
             setNews(response.data);
         } catch (err) {
             setError('Failed to fetch news');

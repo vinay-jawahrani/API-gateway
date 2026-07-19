@@ -12,7 +12,8 @@ export default function QuoteWidget() {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.get('http://localhost:8000/quotes');
+            const response = await axios.get(
+                `${process.env.NEXT_PUBLIC_API_URL}/weather?city=${city}`);
             setQuote(response.data);
         } catch (err) {
             setError('Failed to fetch quote');
