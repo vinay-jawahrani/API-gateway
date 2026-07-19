@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard h1 {
+    text-align: center;
+    color: #1a1a2e;
+    margin-bottom: 30px;
+}
+
+.widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.widget {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    min-height: 200px;
+}
+
+.widget:hover {
+    transform: translateY(-4px);
+}
+
+.widget h2 {
+    margin-top: 0;
+    color: #1a1a2e;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.widget.loading {
+    color: #888;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.widget.error {
+    color: #d32f2f;
+    background: #ffebee;
+    text-align: center;
+    padding: 20px;
+}
+
+.weather-data {
+    margin-top: 15px;
+}
+
+.weather-data p {
+    margin: 8px 0;
+}
+
+.news-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.news-widget li {
+    margin-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.news-widget a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.news-widget a:hover {
+    text-decoration: underline;
+}
+
+.quote-content {
+    font-style: italic;
+    margin-top: 15px;
+}
+
+.quote-content p {
+    margin: 8px 0;
+}
+
+.quote-content p:last-child {
+    font-style: normal;
+    text-align: right;
+    color: #555;
+}
+
+.city-input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.refresh-btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.refresh-btn:hover {
+    background: #1557b0;
+}
