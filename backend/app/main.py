@@ -80,9 +80,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://api-gateway-frontend.vercel.app",   # Your Vercel URL
-        "https://api-gateway-frontend-git-main.vercel.app",  # Preview URL (optional)
-        "https://api-gateway-frontend.vercel.app"    # Add with and without trailing slash
+        "https://api-gateway.vercel.app",   # Your Vercel URL
+        "https://api-gateway-git-main.vercel.app",  # Preview URL (optional)
+        "https://api-gateway.vercel.app/"    # Add with and without trailing slash
     ],
     allow_credentials=True,
     allow_methods=["*"],
