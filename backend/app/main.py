@@ -73,13 +73,16 @@ async def dashboard():
         "news": news_data,
         "quote": quote_data
     }
+
 from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",                      # Local development
-        "https://api-gateway-frontend.vercel.app"     # Production frontend (Vercel)
+        "http://localhost:3000",
+        "https://api-gateway-frontend.vercel.app",   # Your Vercel URL
+        "https://api-gateway-frontend-git-main.vercel.app",  # Preview URL (optional)
+        "https://api-gateway-frontend.vercel.app"    # Add with and without trailing slash
     ],
     allow_credentials=True,
     allow_methods=["*"],
