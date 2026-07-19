@@ -83,9 +83,9 @@ app.add_middleware(
         "https://api-gateway-nine-theta.vercel.app",      # Your exact Vercel URL
         "https://api-gateway-nine-theta.vercel.app/",     # With trailing slash
         "https://*.vercel.app",                           # Allows all Vercel previews
-        "api-gateway-obl-ivion.vercel.app",
-         "api-gateway-git-main-obl-ivion.vercel.app",
-"api-gateway-maoemcdqw-obl-ivion.vercel.app"
+        "https://api-gateway-obl-ivion.vercel.app",
+         "https://api-gateway-git-main-obl-ivion.vercel.app",
+        "https://api-gateway-maoemcdqw-obl-ivion.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
