@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function QuoteWidget() {
     const [quote, setQuote] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const fetchQuote = async () => {
@@ -13,11 +13,12 @@ export default function QuoteWidget() {
         setError(null);
         try {
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_API_URL}/weather?city=${city}`);
+                `${process.env.NEXT_PUBLIC_API_URL}/quotes`
+            );
             setQuote(response.data);
         } catch (err) {
             setError('Failed to fetch quote');
-            console.error(err);
+            console.error('Quote API Error:', err);
         } finally {
             setLoading(false);
         }
@@ -27,8 +28,8 @@ export default function QuoteWidget() {
         fetchQuote();
     }, []);
 
-    if (loading) return <div className="widget loading">Loading quote...</div>;
-    if (error) return <div className="widget error">{error}</div>;
+    if (loading) return <div>Loading quote...</div>;
+    if (error) return <div className="error">{error}</div>;
 
     return (
         <div className="widget quote-widget">
@@ -42,17 +43,4 @@ export default function QuoteWidget() {
             )}
         </div>
     );
-}
-export default function QuoteWidget() {
-    console.log('🟢 QuoteWidget is rendering');  // Add this
-
-    useEffect(() => {
-        console.log('🟢 QuoteWidget useEffect fired');  // Add this
-        fetchQuote();
-    }, []);
-
-    const fetchQuote = async () => {
-        console.log('🟢 fetchQuote called');  // Add this
-        // ... rest of the code
-    };
 }

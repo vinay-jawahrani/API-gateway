@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function NewsWidget() {
     const [news, setNews] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const fetchNews = async () => {
@@ -13,11 +13,12 @@ export default function NewsWidget() {
         setError(null);
         try {
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_API_URL}/weather?city=${city}`);
+                `${process.env.NEXT_PUBLIC_API_URL}/news?limit=3`
+            );
             setNews(response.data);
         } catch (err) {
             setError('Failed to fetch news');
-            console.error(err);
+            console.error('News API Error:', err);
         } finally {
             setLoading(false);
         }
@@ -27,8 +28,8 @@ export default function NewsWidget() {
         fetchNews();
     }, []);
 
-    if (loading) return <div className="widget loading">Loading news...</div>;
-    if (error) return <div className="widget error">{error}</div>;
+    if (loading) return <div>Loading news...</div>;
+    if (error) return <div className="error">{error}</div>;
 
     return (
         <div className="widget news-widget">
@@ -48,17 +49,4 @@ export default function NewsWidget() {
             )}
         </div>
     );
-}
-export default function NewsWidget() {
-    console.log('🔵 NewsWidget is rendering');  // Add this
-
-    useEffect(() => {
-        console.log('🔵 NewsWidget useEffect fired');  // Add this
-        fetchNews();
-    }, []);
-
-    const fetchNews = async () => {
-        console.log('🔵 fetchNews called');  // Add this
-        // ... rest of the code
-    };
 }
